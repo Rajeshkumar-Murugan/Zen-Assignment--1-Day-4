@@ -28,36 +28,3 @@ function compare(obj1, obj2)
 console.log(obj1);
 console.log(obj2);
 console.log("Comparison result:" +compare(obj1, obj2));
-
-
-//2. Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
-//3. Use the same rest countries and print all countries name, region, sub region and population
-
-//XHTML
-const getCountries = () =>{
-    const xhr=new XMLHttpRequest()
-  //data - endpoint (URL which contains the json data)
-  xhr.open('GET', 'https://restcountries.eu/rest/v2/all');
-  xhr.responeType = 'json';
-  xhr.onload = () => {
-    const data = xhr.response;
-
-
-    let result = (JSON.parse(data))
-    .map((Country) => ({
-    Name:Country.name,
-    Region: Country.region,
-    Subregion:Country.subregion, 
-    Population: Country.population,
-    Flag: Country.flag
-    }));
-    
-
-    console.log(result);
-    
-  }
-  xhr.send()
-}
-
-getCountries()
-
